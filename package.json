@@ -1,0 +1,22 @@
+{
+  "name": "highplaces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "private": true,
+  "scripts": {
+    "build:html": "node build.js",
+    "build:css": "npx @tailwindcss/cli -i ./src/css/input.css -o ./public/assets/css/style.css --minify",
+    "build": "npm run build:html && npm run build:css",
+    "watch": "node watch.js"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "chokidar": "^3.6.0",
+    "html-minifier-terser": "^7.2.0",
+    "nunjucks": "^3.2.4",
+    "tailwindcss": "^4.3.3"
+  }
+}

@@ -1,0 +1,190 @@
+@config "../../tailwind.config.js";
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: #fd4621;
+    color: #ffffff;
+}
+
+/* =========================================================
+   SCROLL REVEAL ENTRANCE ANIMATIONS
+   Elements slide up from downwards as they hit the viewport
+========================================================= */
+
+/* Initial hidden state is only activated when JS is ready (progressive enhancement) */
+html.reveal-ready .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition-property: opacity, transform;
+    transition-duration: 1000ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+/* Revealed state triggered when element intersects browser viewport */
+html.reveal-ready .reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+}
+
+/* Scale-up variant (useful for cards and hero elements) */
+html.reveal-ready .reveal-scale {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+    transition-property: opacity, transform;
+    transition-duration: 1000ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+html.reveal-ready .reveal-scale.is-revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    will-change: auto;
+}
+
+/* Accessibility: respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html.reveal-ready .reveal,
+    html.reveal-ready .reveal-scale {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   STICKY HEADER & TOUR NAVIGATION
+========================================================= */
+#site-header {
+    transition: transform 280ms ease, background-color 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+#site-header.is-hidden {
+    transform: translateY(-100%);
+}
+
+#site-header.is-scrolled {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.25);
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+#tour-nav {
+    transition: box-shadow 200ms ease;
+}
+
+#tour-nav.is-stuck {
+    box-shadow: 0 6px 18px -6px rgba(8, 63, 74, 0.18);
+}
+
+#tour-nav a[aria-current="true"] {
+    color: #083f4a;
+    border-color: #fd4621;
+}
+
+[data-tour-section] {
+    scroll-margin-top: calc(var(--nav-h, 76px) + 14px);
+}
+
+/* =========================================================
+   ACCESSIBILITY & FOCUS
+========================================================= */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2.5px solid #fd4621;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* =========================================================
+   HORIZONTAL SCROLL STRIPS
+========================================================= */
+.scroll-quiet {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scroll-quiet::-webkit-scrollbar {
+    display: none;
+}
+
+/* =========================================================
+   ITINERARY TIMELINE
+========================================================= */
+.timeline {
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 23px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: #dce5e3;
+}
+
+@media (min-width: 640px) {
+    .timeline::before {
+        left: 27px;
+    }
+}
+
+.timeline-marker {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+/* =========================================================
+   ACCORDION TRANSITIONS (DETAILS)
+========================================================= */
+details > .details-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 250ms ease;
+}
+
+details[open] > .details-body {
+    grid-template-rows: 1fr;
+}
+
+details > .details-body > div {
+    overflow: hidden;
+}
+
+details summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+.chev {
+    transition: transform 200ms ease;
+}
+
+details[open] .chev {
+    transform: rotate(180deg);
+}
+
+/* =========================================================
+   STICKY SIDEBAR LIBRARY
+========================================================= */
+.sidebar__inner {
+    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
+    will-change: position, transform;
+}

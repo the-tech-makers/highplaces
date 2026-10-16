@@ -188,3 +188,14 @@ details[open] .chev {
     transform: translate3d(0, 0, 0);
     will-change: position, transform;
 }
+
+/* Featured adventure discovery filters */
+#featured-adventure-grid [hidden] { display: none !important; }
+#trip-destination, #trip-activity, #trip-difficulty, #trip-filter-reset { min-height: 44px; }
+#trip-filter-reset:focus-visible, #trip-destination:focus-visible, #trip-activity:focus-visible, #trip-difficulty:focus-visible {
+    outline: 3px solid #fd4621;
+    outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+    #featured-adventure-grid article { transition: none !important; }
+}

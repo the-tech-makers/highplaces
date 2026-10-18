@@ -3,10 +3,27 @@
 ========================================================= -->
 
 <footer
-    class="bg-[#0b2021] px-5 py-14 text-white sm:px-8 lg:px-10"
+    class="relative isolate overflow-hidden bg-[#071719] px-5 py-14 text-white sm:px-8 lg:px-10"
 >
+    <!-- Subtle topographic contour pattern, inspired by Himalayan trail maps -->
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <svg class="h-full w-full opacity-40" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="#6BA7A2" stroke-width="1">
+                <path opacity=".22" d="M-80 90C70 10 160 170 300 95S520 15 660 100 870 185 1010 90 1250 10 1530 110"/>
+                <path opacity=".16" d="M-80 115C70 35 160 195 300 120S520 40 660 125 870 210 1010 115 1250 35 1530 135"/>
+                <path opacity=".13" d="M-80 140C70 60 160 220 300 145S520 65 660 150 870 235 1010 140 1250 60 1530 160"/>
+                <path opacity=".2" d="M-60 360C100 260 210 420 360 340S610 255 760 350 980 445 1120 345 1330 265 1510 355"/>
+                <path opacity=".14" d="M-60 385C100 285 210 445 360 365S610 280 760 375 980 470 1120 370 1330 290 1510 380"/>
+                <path opacity=".1" d="M-60 410C100 310 210 470 360 390S610 305 760 400 980 495 1120 395 1330 315 1510 405"/>
+            </g>
+            <g stroke="#FD4621" stroke-width="1" opacity=".18">
+                <path d="M1120 -30C1020 60 1220 100 1110 190S1000 330 1130 400 1280 470 1200 560"/>
+                <path d="M1150 -30C1050 60 1250 100 1140 190S1030 330 1160 400 1310 470 1230 560"/>
+            </g>
+        </svg>
+    </div>
 
-    <div class="mx-auto max-w-7xl reveal">
+    <div class="relative z-10 mx-auto max-w-7xl reveal">
 
         <div
             class="grid gap-10 md:grid-cols-2 lg:grid-cols-5"
